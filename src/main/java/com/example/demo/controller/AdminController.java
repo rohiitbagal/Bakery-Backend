@@ -15,9 +15,10 @@ public class AdminController {
         this.adminService = adminService;
     }
 
-  @PostMapping("/login")
-    public boolean login(@RequestBody Admin admin) {
-        return adminService.login(admin.getUsername(), admin.getPassword());
+  @GetMapping("/login")
+    public boolean login(@RequestParam String username,
+                     @RequestParam String password) {
+    return adminService.login(username, password);
 }
 
     @PostMapping("/register")
